@@ -6,7 +6,7 @@ using RedLockNet;
 
 namespace Hello_World.Controllers.HelloWorld
 {
-    [Authorize]
+   
     [ApiController]
     [Route("[controller]")]
     public class HelloWorldController : ControllerBase
@@ -19,7 +19,7 @@ namespace Hello_World.Controllers.HelloWorld
             _logger = logger;
             _LockFactory = lockFactory;
         }
-
+        [Authorize]
         [HttpGet(Name = "GetHelloWorld")]
         public async Task<HelloWorldResponse> GetHelloWorld()
         {
