@@ -1,4 +1,5 @@
 using Authorization;
+using Consumer.Controllers;
 using Consumer.Core;
 using Consumer.Core.SignupService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,6 +18,8 @@ namespace Consumer
 
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddTransient<ISignupService, SignupService>();
+            builder.Services.AddHttpClient<SignupController>();
+
             builder.Services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
